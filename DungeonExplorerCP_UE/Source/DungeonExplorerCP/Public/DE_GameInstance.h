@@ -27,6 +27,10 @@ public:
 		int32 rockNum = 2;
 
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MomomoWorks")
+		bool test = false;
+
+
 	// ÉQÅ[ÉÄäJénéûçè
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MomomoWorks")
 		FDateTime startTime;

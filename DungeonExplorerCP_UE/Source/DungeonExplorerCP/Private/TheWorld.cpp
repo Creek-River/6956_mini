@@ -2,9 +2,10 @@
 
 
 #include "TheWorld.h"
-
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h" // ダメージ処理用に追加
 #include "EnemyAIController.h"
 #include "EnemyCPCharacter.h" // エネミーキャラクタを扱ううえで必要
+#include "DE_GameInstance.h"// ゲームインスタンスに格納している残機情報取得のため追加
 
 // Sets default values
 ATheWorld::ATheWorld()
@@ -44,9 +45,12 @@ void ATheWorld::BeginOverlap(UPrimitiveComponent* OverlappedComponent,
 	//AEnemyCPCharacter* enemyCharacter = Cast<AEnemyCPCharacter>(GetPawn());
 	//enemyCharacter->AAIController->onWorld();
 
+	UDE_GameInstance* DE_instance = Cast<UDE_GameInstance>(UGameplayStatics::GetGameInstance(GetWorld()));
+	DE_instance->test = true;
+
 	this->Destroy();
 	FString message = TEXT("The World 5sec");
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, message);
+	GEngine->AddOnScreenDebugMessage(-1, 50.f, FColor::Red, message);
 	//UE_LOG(LogTemp, Warning, TEXT("Got The World!!"));
 }
 

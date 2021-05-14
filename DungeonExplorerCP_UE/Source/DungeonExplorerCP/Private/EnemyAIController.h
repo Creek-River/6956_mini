@@ -47,9 +47,15 @@ protected:
 
 	// TheWorldにあたったとき
 	UFUNCTION()
-		void OnWorld(APawn* OtherPawn);
+		void OnWorld();
 
 	// タイマー用
 	FTimerHandle timerHandle;
 	void OnChaseTimeOut();
+
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 };
